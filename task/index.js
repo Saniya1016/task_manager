@@ -1,13 +1,13 @@
 import express from 'express';
 import morgan from 'morgan';
-import router from './routes/task_api';
+import router from './routes/task_api.js';
 
 const app = express();
 const port = 4000;
 
 app.use(morgan('dev'));
+app.use(express.json());
 app.use('/task', router);
-
 
 app.listen(port, () => {
     console.log('Listening on port 4000');
