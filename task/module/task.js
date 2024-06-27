@@ -22,7 +22,7 @@ export class Task{
     }
 
     update_due_date(new_date){
-        this.due_date = new Date(new_date)
+        this.due_date = new Date(new_date);
         this.calculate_priority();
     }
 

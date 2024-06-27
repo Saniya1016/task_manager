@@ -22,14 +22,16 @@ class Tasks{
     update_date(id, user_id, new_date){
         const i = this.table.findIndex((obj) => obj.user_id == user_id && obj.id == id);
         const task = this.table[i];
-        let t = new Task(task.id, task.user_id, task.name, task.description, new_date, task.difficulty, task.collaborators, task.complete);
+        let t = new Task(task.id, task.user_id, task.name, task.description, task.due_date, task.difficulty, task.collaborators, task.complete);
+        t.update_due_date(new_date);
         this.table[i] = t.convert_to_json();
     }
 
     update_difficulty(id, user_id, new_difficulty){
         const i = this.table.findIndex((obj) => obj.user_id == user_id && obj.id == id);
         const task = this.table[i];
-        let t = new Task(task.id, task.user_id, task.name, task.description, task.due_date, new_difficulty, task.collaborators, task.complete);
+        let t = new Task(task.id, task.user_id, task.name, task.description, task.due_date, task.difficulty, task.collaborators, task.complete);
+        t.update_difficulty(new_difficulty);
         this.table[i] = t.convert_to_json();
     }
 
